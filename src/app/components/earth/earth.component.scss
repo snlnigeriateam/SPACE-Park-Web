@@ -1,0 +1,14 @@
+.earth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin-top: -5rem;
+  overflow: hidden;
+}
+
+.earth-image {
+  max-width: 45%;
+  height: auto;
+  bottom: 0;
+}

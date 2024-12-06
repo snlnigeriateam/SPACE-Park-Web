@@ -1,0 +1,25 @@
+/* Global Styles */
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; /* Import the Material theme */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif !important; /* Ensure Orbitron takes precedence */
+}
+
+* {
+  font-family: 'Orbitron', sans-serif !important; /* Apply to all elements */
+}
+
+/* Global Mat Radio Button Customizations */
+.mat-radio-button .mat-radio-label-content {
+  color: white !important; /* Set the label content to white */
+}
+
+.mat-radio-button .mat-radio-outer-circle {
+  border-color: white !important; /* White border color */
+}
+
+.mat-radio-button.mat-radio-checked .mat-radio-outer-circle {
+  background-color: white !important; /* White background for checked radio button */
+}

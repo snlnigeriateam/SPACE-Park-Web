@@ -1,0 +1,54 @@
+.navbar {
+  background: transparent;
+  position: absolute;
+  color: white;
+  border-bottom: 1px solid #FFFFFF;
+  width: 92%;
+  height: 51px;
+  top: 11px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.06px;
+  text-decoration: none;
+
+  &.active-link {
+    background: white;
+    color: black;
+    border-radius: 16px;
+    padding: 8px 16px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20.06px;
+}
+
+.logo img {
+  margin-right: 2px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar nav {
+    display: none; // Hide navigation links on small screens
+  }
+
+  .navbar .menu-icon {
+    display: block; // Show hamburger menu icon
+  }
+}

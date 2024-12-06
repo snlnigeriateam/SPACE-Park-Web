@@ -1,0 +1,514 @@
+<div class="tickets-container">
+  <h1 class="tickets-title">Tickets</h1>
+  <div class="ticket-options">
+    <h3>Select ticket type</h3>
+
+    <div class="lay">
+      <div class="radio-group">
+        <div class="rad">
+          <label for="All-access" class="radio-label">
+            <input 
+              type="radio" 
+              id="All-access" 
+              value="All-access" 
+              name="ticket" 
+              [(ngModel)]="selectedTicket" 
+              (change)="onTicketSelect('All-access')">
+            All access
+          </label>
+        </div>
+  
+        <div class="rad">
+          <label for="Basic-access" class="radio-label">
+            <input 
+              type="radio" 
+              id="Basic-access" 
+              value="Basic-access" 
+              name="ticket" 
+              [(ngModel)]="selectedTicket" 
+              (change)="onTicketSelect('Basic-access')">
+            Basic access
+          </label>
+        </div>
+        
+        <div class="rad">
+          <label for="Gallery-access" class="radio-label">
+            <input 
+              type="radio" 
+              id="Gallery-access" 
+              value="Gallery-access" 
+              name="ticket" 
+              [(ngModel)]="selectedTicket" 
+              (change)="onTicketSelect('Gallery-access')">
+            Gallery access
+          </label>
+        </div>
+        
+        <div class="rad">
+          <label for="Other-tests" class="radio-label">
+            <input 
+              type="radio" 
+              id="other-tests" 
+              value="other-tests" 
+              name="ticket" 
+              [(ngModel)]="selectedTicket" 
+              (change)="onTicketSelect('Other-tests')">
+            Other tests
+          </label>
+        </div>
+        
+      </div>
+  
+      <!-- Display selected ticket type details -->
+      <div *ngIf="selectedTicket === 'All-access' && selectedButton === null" class="ticket-details">
+        <div  class="ticket-info">
+          <h1>All Access</h1>
+          <h3>Museum and Exhibition access, including Gallery access</h3>
+  
+          <!-- Ticket section for Adult -->
+          <div class="section">
+            <div class="sect1">
+              <p class="type">Adult</p>
+              <p class="price">₦{{ prices.adult }}</p>
+            </div>
+            <div class="sect2">
+              <div class="minus" (click)="decrementQuantity('adult')">
+                <p>-</p>
+              </div>
+              <div class="quantity">{{ quantities.adult }}</div>
+              <div class="plus" (click)="incrementQuantity('adult')">
+                <p>+</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Ticket section for Child -->
+          <div class="section">
+            <div class="sect1">
+              <p class="type">Child</p>
+              <p class="price">₦{{ prices.child }}</p>
+            </div>
+            <div class="sect2">
+              <div class="minus" (click)="decrementQuantity('child')">
+                <p>-</p>
+              </div>
+              <div class="quantity">{{ quantities.child }}</div>
+              <div class="plus" (click)="incrementQuantity('child')">
+                <p>+</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Ticket section for Student -->
+          <div class="section">
+            <div class="sect1">
+              <p class="type">Student</p>
+              <p class="price">₦{{ prices.student }}</p>
+            </div>
+            <div class="sect2">
+              <div class="minus" (click)="decrementQuantity('student')">
+                <p>-</p>
+              </div>
+              <div class="quantity">{{ quantities.student }}</div>
+              <div class="plus" (click)="incrementQuantity('student')">
+                <p>+</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Ticket section for Senior -->
+          <div class="section">
+            <div class="sect1">
+              <p class="type">Senior</p>
+              <p class="price">₦{{ prices.senior }}</p>
+            </div>
+            <div class="sect2">
+              <div class="minus" (click)="decrementQuantity('senior')">
+                <p>-</p>
+              </div>
+              <div class="quantity">{{ quantities.senior }}</div>
+              <div class="plus" (click)="incrementQuantity('senior')">
+                <p>+</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Total Section -->
+          <div class="total">
+            <p class="tots">Total</p>
+            <p class="tals">₦{{ getTotalPrice() }}</p>
+          </div>
+  
+          <!-- Next Button Section -->
+          <div class="next">
+            <div class="btn" (click)="onButtonSelect('next')">
+              Next
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+        <!-- Add similar divs for other ticket types if needed -->
+        <div *ngIf="selectedTicket === 'Basic-access' && selectedButton === null" class="ticket-details">
+          <div  class="ticket-info">
+            <h1>Basic Access</h1>
+            <h3>Museum and Exhibition Access</h3>
+    
+            <!-- Ticket section for Adult -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Adult</p>
+                <p class="price">₦{{ prices.adult }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('adult')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.adult }}</div>
+                <div class="plus" (click)="incrementQuantity('adult')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Child -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Child</p>
+                <p class="price">₦{{ prices.child }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('child')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.child }}</div>
+                <div class="plus" (click)="incrementQuantity('child')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Student -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Student</p>
+                <p class="price">₦{{ prices.student }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('student')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.student }}</div>
+                <div class="plus" (click)="incrementQuantity('student')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Senior -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Senior</p>
+                <p class="price">₦{{ prices.senior }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('senior')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.senior }}</div>
+                <div class="plus" (click)="incrementQuantity('senior')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Total Section -->
+            <div class="total">
+              <p class="tots">Total</p>
+              <p class="tals">₦{{ getTotalPrice() }}</p>
+            </div>
+    
+            <!-- Next Button Section -->
+            <div class="next">
+              <div class="btn" (click)="onButtonSelect('next')">
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div *ngIf="selectedTicket === 'Gallery-access' && selectedButton === null" class="ticket-details">
+          <div  class="ticket-info">
+            <h1>Gallery Access</h1>
+            <h3>Museum and Exhibition Access, including Gallery Access</h3>
+    
+            <!-- Ticket section for Adult -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Adult</p>
+                <p class="price">₦{{ prices.adult }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('adult')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.adult }}</div>
+                <div class="plus" (click)="incrementQuantity('adult')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Child -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Child</p>
+                <p class="price">₦{{ prices.child }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('child')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.child }}</div>
+                <div class="plus" (click)="incrementQuantity('child')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Student -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Student</p>
+                <p class="price">₦{{ prices.student }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('student')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.student }}</div>
+                <div class="plus" (click)="incrementQuantity('student')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Senior -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Senior</p>
+                <p class="price">₦{{ prices.senior }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('senior')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.senior }}</div>
+                <div class="plus" (click)="incrementQuantity('senior')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Total Section -->
+            <div class="total">
+              <p class="tots">Total</p>
+              <p class="tals">₦{{ getTotalPrice() }}</p>
+            </div>
+    
+            <!-- Next Button Section -->
+            <div class="next">
+              <div class="btn" (click)="onButtonSelect('next')">
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div *ngIf="selectedTicket === 'Other-tests' && selectedButton === null" class="ticket-details">
+          <div  class="ticket-info">
+            <h1>Other Tests</h1>
+            <h3></h3>
+    
+            <!-- Ticket section for Adult -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Adult</p>
+                <p class="price">₦{{ prices.adult }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('adult')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.adult }}</div>
+                <div class="plus" (click)="incrementQuantity('adult')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Child -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Child</p>
+                <p class="price">₦{{ prices.child }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('child')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.child }}</div>
+                <div class="plus" (click)="incrementQuantity('child')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Student -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Student</p>
+                <p class="price">₦{{ prices.student }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('student')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.student }}</div>
+                <div class="plus" (click)="incrementQuantity('student')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Ticket section for Senior -->
+            <div class="section">
+              <div class="sect1">
+                <p class="type">Senior</p>
+                <p class="price">₦{{ prices.senior }}</p>
+              </div>
+              <div class="sect2">
+                <div class="minus" (click)="decrementQuantity('senior')">
+                  <p>-</p>
+                </div>
+                <div class="quantity">{{ quantities.senior }}</div>
+                <div class="plus" (click)="incrementQuantity('senior')">
+                  <p>+</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Total Section -->
+            <div class="total">
+              <p class="tots">Total</p>
+              <p class="tals">₦{{ getTotalPrice() }}</p>
+            </div>
+    
+            <!-- Next Button Section -->
+            <div class="next" >
+              <div class="btn" (click)="onButtonSelect('next')">
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display after clicking Next button -->
+        <div *ngIf="selectedButton === 'next'" class="details">
+          <p class="next-title">Select Date & Time</p>
+          <p class="next-subtitle">Plan your visit to the National Space and Aviation Museum</p>
+
+          <div class="calendar">
+            <p class="date-label">Choose a date</p>
+            <input type="date">
+          </div>
+
+          <div class="time">
+            <p class="time-label">Choose a time</p>
+            <input type="time">
+          </div>
+
+          <!-- Next Button Section -->
+          <div class="next-next" >
+            <div class="btn" (click)="onButtonSelect('info')">
+              Next
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="selectedButton === 'info'" class="order-details">
+          <p class="order-title">Order Information</p>
+
+          <div class="email">
+            <p class="email-label">Email Address</p>
+            <input type="email">
+          </div>
+
+          <div class="fName">
+            <p class="firstName-label">First Name</p>
+            <input type="text">
+          </div>
+
+          <div class="lName">
+            <p class="lastName-label">Last Name</p>
+            <input type="text">
+          </div>
+
+          <div class="sub">
+            <label for="Basic-access" class="sub-label">
+              <input 
+                type="radio" 
+                id="basic-access" 
+                value="basic-access" 
+                name="ticket" 
+              >
+                Receive information about Museum Exhibitions and other Park activities
+            </label>
+          </div>
+
+          <div class="deets">
+            <div class="deets-layout">
+              <p class="deets-left">Type</p>
+              <p class="deets-right">{{selectedTicket}}</p>
+            </div>
+
+            <div class="deets-layout" *ngFor="let type of ticketTypes">
+              <p class="deets-left">{{ type | titlecase }}</p>
+              <p class="deets-right">{{ savedQuantities[type] }}</p>
+            </div>
+          </div>
+
+          <!-- Total Section -->
+          <div class="total">
+            <p class="tots">Total</p>
+            <p class="tals">₦{{ savedTotalPrice }}</p>
+          </div>
+
+          <!-- Next Button Section -->
+          <div class="pay" >
+            <div class="btn" (click)="onButtonSelect('info')">
+              Pay
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arr">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

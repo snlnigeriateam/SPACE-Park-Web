@@ -1,0 +1,544 @@
+.tickets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: white;
+  padding: 3rem;
+  background-color: black;
+  height: 100vh;
+  //width: full;
+}
+
+.tickets-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 60.97px;
+}
+
+.ticket-options {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22.58px;
+  color: white;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+}
+
+.radio-label {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1rem;
+  padding: 10px;
+  background-color: transparent;  /* Default background is transparent */
+  border: 2px solid transparent;  /* Border is transparent by default */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition */
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;  /* Make the radio button visible */
+}
+
+/* When the radio button is checked, apply the styles */
+input[type="radio"]:checked + .radio-label {
+  background-color: white;   /* Set background to white when selected */
+  color: black;              /* Set text color to black */
+  border-color: black;       /* Change the border color to black */
+}
+
+/* Optional: Make the radio button itself turn black when selected */
+input[type="radio"]:checked {
+  background-color: black;   /* Change the radio button's inner color to black */
+  border-color: black;       /* Add a border to the radio button */
+}
+
+/* Optional: Add hover effect */
+.radio-label:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background change on hover */
+}
+
+
+/* Optional: Styling for ticket details */
+.ticket-details {
+  margin-top: -170px;
+  font-size: 18px;
+  color: black;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  width: 550px;
+  height: 480px;
+}
+
+.details {
+  margin-top: -170px;
+  font-size: 18px;
+  color: black;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  width: 550px;
+  height: 480px;
+}
+
+.lay {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rad {
+  //margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.rad:checked {
+  background-color: #FFFFFF;
+}
+
+/* Ensure global styles apply to dynamically injected HTML */
+::ng-deep .ticket-info {
+  //background-color: #f8f8f8;
+  padding-top: 30px;
+  border-radius: 8px;
+  //box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  //margin-top: 1rem;
+  color: #333;
+}
+
+::ng-deep .ticket-info h1, .ticket-info h3 {
+  color: #000;
+}
+
+::ng-deep .ticket-info h1 {
+  font-size: 32px;
+  font-weight: 400;
+  color: black;
+}
+
+::ng-deep .ticket-info h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.06px;
+  margin-top: -10px;
+}
+
+::ng-deep .ticket-info p {
+  font-size: 16px;
+  color: #555;
+}
+
+::ng-deep .ticket-info .btn-register {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 40px;
+}
+
+::ng-deep .btn-register:hover {
+  background-color: #0056b3;
+}
+
+/* Specific style for dynamically generated content inside the component */
+::ng-deep .ticket-info {
+  //background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .ticket-info .section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+::ng-deep .ticket-info .sect1 {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Align items at the start of the container */
+  align-items: flex-start; /* Horizontally center items */
+  gap: 0; /* Space between the items */
+}
+
+::ng-deep .ticket-info .sect2 {
+  //height: 40px;
+  display: flex;
+  width: 144px;
+  height: 40px;
+  //background: yellow;
+}
+
+::ng-deep .ticket-info .sect1 .price{
+  margin-top: -10px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+}
+
+::ng-deep .ticket-info .sect1 .type{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+::ng-deep .ticket-info .sect2 .minus {
+  background-color: #0F1B37;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+
+::ng-deep .ticket-info .sect2 .minus p {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30.1px;
+  margin-top: 10px;
+}
+
+::ng-deep .ticket-info .sect2 .plus p {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30.1px;
+  margin-top: 10px;
+  //height: 100px;
+}
+
+::ng-deep .ticket-info .sect2 .quantity {
+  width: 40px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .ticket-info .sect2 .plus {
+  background-color: #0F1B37;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+
+::ng-deep .ticket-info .sect2 .plus .plu {
+  color: #FFFFFF;
+}
+
+::ng-deep .ticket-info .total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+::ng-deep .ticket-info .tots{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+}
+
+::ng-deep .ticket-info .tals{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+  margin-right: 15px;
+}
+
+::ng-deep .ticket-info .next{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 25px;
+}
+
+::ng-deep .ticket-info .next .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.06px;
+  background-color: #0F1B37;
+  margin-right: 15px;
+  color: white;
+  width: 130px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+::ng-deep .ticket-info .next .btn .arr{
+  color: white;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.next-title {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 36.13px;
+}
+
+.next-subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.date-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.calendar {
+  margin-top: 30px;
+}
+
+.calendar input {
+  margin-top: -20px;
+  width: 93%;
+  height: 35px;
+  padding-left: 15px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+
+.time-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.time {
+  margin-top: 25px;
+}
+
+.time input {
+  margin-top: -20px;
+  width: 93%;
+  height: 35px;
+  padding-left: 15px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+
+.next-next{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 170px;
+}
+
+.next-next .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.06px;
+  background-color: #0F1B37;
+  margin-right: 25px;
+  color: white;
+  width: 130px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.next-next .btn .arr{
+  color: white;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.order-title {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36.13px;
+}
+
+.email-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.firstName-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.lastName-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.email {
+  margin-top: 30px;
+}
+
+.email input {
+  margin-top: -20px;
+  width: 99%;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.fName {
+  margin-top: 15px;
+}
+
+.fName input {
+  margin-top: -20px;
+  width: 99%;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.lName {
+  margin-top: 15px;
+}
+
+.lName input {
+  margin-top: -20px;
+  width: 99%;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.pay{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.pay .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.06px;
+  background-color: #0F1B37;
+  //margin-right: 25px;
+  color: white;
+  width: 130px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.pay .btn .arr{
+  color: white;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.order-details {
+  margin-top: -220px;
+  font-size: 18px;
+  color: black;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  width: 480px;
+  height: auto;
+}
+
+.sub {
+  margin-top: 15px;
+}
+
+.sub-label {
+  margin-bottom: 1.5rem;
+  color: black;
+  font-size: 0rem;
+  border-radius: 5px;
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;  /* Smooth transition */
+}
+
+.deets-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -5px;
+}
+
+.deets-left {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.06px;
+}
+
+.deets-right {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+}
+
+.deets {
+  border-bottom: 1px solid #0F1B37;
+  margin-top: -10px;
+}
+
+.total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.tots{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+}
+
+.tals{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.08px;
+  //margin-right: 15px;
+}

@@ -1,0 +1,49 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    background-color: black;
+    height: 90vh;
+  }
+  
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+  }
+  
+  .contact-details {
+    display: flex;
+    //flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-logo img {
+    width: 433px;
+    height: 433px;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-info {
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .contact-footer {
+    margin-top: 3rem;
+    font-size: 0.875rem;
+  }
+  
